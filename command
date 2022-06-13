@@ -1,0 +1,4 @@
+python train.py ./ --model tf_efficientdet_d4_ap --dataset voc0712 -b 1 --amp --lr .008 --sync-bn --opt fusedmomentum --warmup-epochs 3 --model-ema --model-ema-decay 0.9966 --epochs 50 --num-classes 2 --pretrained
+sudo docker run --gpus 4 --shm-size 16G -ti effi python -m torch.distributed.launch --nproc_per_node=4 train.py ./ --model tf_efficientdet_d5_ap --dataset voc0712 -b 1 --amp --lr .008 --sync-bn --opt fusedmomentum --warmup-epochs 3 --model-ema --model-ema-decay 0.9966 --epochs 50 --num-classes 2 --pretrained
+docker run --gpus 1 --shm-size 16G -ti effi python -m torch.distributed.launch --nproc_per_node=1 train.py ./ --model efficientdet_d0 -b 1
+docker build -t effi .

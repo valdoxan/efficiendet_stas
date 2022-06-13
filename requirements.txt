@@ -1,0 +1,8 @@
+timm>=0.4.12
+pyyaml
+numpy
+
+# an update version that fixes some bugs, incl issues with numpy >= 1.18
+pycocotools>=2.0.2
+
+omegaconf>=2.0
